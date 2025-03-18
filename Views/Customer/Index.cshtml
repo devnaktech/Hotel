@@ -1,0 +1,158 @@
+﻿@model IEnumerable<Customer>
+
+<div class="d-flex justify-content-between p-3">
+    <h3>Customer</h3>
+
+    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add Customer
+    </button>
+</div>
+
+<div class="card">
+    <div class="card-body p-2 rounded-4">
+        <table class="table rounded-4">
+            <thead>
+                <tr>
+                    <th> No </th>
+                    <th>Name</th>
+                    <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                    <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.Expense)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address)</th>
+                    <th>@Html.DisplayNameFor(model => model.PasswortNo)</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int counter = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@counter </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td> @Html.DisplayFor(modelItem => item.Gender) </td>
+                        <td> @Html.DisplayFor(modelItem => item.Phone) </td>
+                        <td> @Html.DisplayFor(modelItem => item.Email)</td>
+                        <td> $@Html.DisplayFor(modelItem => item.Expense) </td>
+                        <td>@Html.DisplayFor(modelItem => item.Address) </td>
+                        <td>@Html.DisplayFor(modelItem => item.PasswortNo) </td>
+
+                        <td class="">
+                            <div class="dropdown rounded-4">
+                                <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <ul class="dropdown-menu rounded-4">
+                                    <li>
+                                        <button type="button" class="dropdown-item text-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdropDetail_@item.CustomerId">
+                                            <i class="fas fa-info-circle mr-2"></i>Details
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item text-warning" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdropEdit_@item.CustomerId">
+                                            <i class="fas fa-pen mr-2"></i>Edit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item text-danger" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdropDelete_@item.CustomerId">
+                                            <i class="fas fa-trash mr-2"></i>Delete
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                    @* Modal for delete *@
+                    <div class="modal fade" id="staticBackdropDelete_@item.CustomerId" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title fs-5">
+                                        Delete Customer (@item.FirstName @item.LastName)
+                                    </h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body pt-0">
+                                    <p>This action connot be undo. The data perminently delete.</p>
+                                </div>
+                                <form asp-action="Delete" asp-route-id="@item.CustomerId" method="post">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger">Confirm</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* Modal for detail *@
+                    <div class="modal fade" id="staticBackdropDetail_@item.CustomerId" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title fs-5">
+                                        Edit Customer (@item.FirstName @item.LastName)
+                                    </h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body pt-0">
+                                    <partial name="_Detail" model="item" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* Modal for edit *@
+                    <div class="modal fade" id="staticBackdropEdit_@item.CustomerId" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title fs-5">
+                                        Edit Customer (@item.FirstName @item.LastName)
+                                    </h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body pt-0">
+                                    <partial name="_Edit" model="item" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    counter++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5" id="staticBackdropLabel">
+                    Add Customer
+                </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0">
+                <partial name="_Create" model='new Customer { FirstName = "", LastName = "", Gender = "", }' />
+            </div>
+        </div>
+    </div>
+</div>
