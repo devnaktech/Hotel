@@ -10378,31 +10378,47 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\nasacomputer\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "/Users/journey/.nuget/packages/": {}
+>>>>>>> ced02a818f40d0377ed42b15f0bc19fd2d26b4ae
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\Assignment\\New folder\\Hotel\\Midterm.csproj",
       "projectName": "Midterm",
       "projectPath": "D:\\Assignment\\New folder\\Hotel\\Midterm.csproj",
       "packagesPath": "C:\\Users\\nasacomputer\\.nuget\\packages\\",
       "outputPath": "D:\\Assignment\\New folder\\Hotel\\obj\\",
+=======
+      "projectUniqueName": "/Users/journey/Documents/nasPj/ASP.NET/nuclearHotel/Hotel/Midterm.csproj",
+      "projectName": "Midterm",
+      "projectPath": "/Users/journey/Documents/nasPj/ASP.NET/nuclearHotel/Hotel/Midterm.csproj",
+      "packagesPath": "/Users/journey/.nuget/packages/",
+      "outputPath": "/Users/journey/Documents/nasPj/ASP.NET/nuclearHotel/Hotel/obj/",
+>>>>>>> ced02a818f40d0377ed42b15f0bc19fd2d26b4ae
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\nasacomputer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+        "/Users/journey/.nuget/NuGet/NuGet.Config"
+>>>>>>> ced02a818f40d0377ed42b15f0bc19fd2d26b4ae
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+<<<<<<< HEAD
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+=======
+>>>>>>> ced02a818f40d0377ed42b15f0bc19fd2d26b4ae
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10472,6 +10488,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+<<<<<<< HEAD
             "version": "[8.0.14, 8.0.14]"
           },
           {
@@ -10481,6 +10498,17 @@
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
             "version": "[8.0.14, 8.0.14]"
+=======
+            "version": "[8.0.12, 8.0.12]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.12, 8.0.12]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x64",
+            "version": "[8.0.12, 8.0.12]"
+>>>>>>> ced02a818f40d0377ed42b15f0bc19fd2d26b4ae
           }
         ],
         "frameworkReferences": {
@@ -10491,7 +10519,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+>>>>>>> ced02a818f40d0377ed42b15f0bc19fd2d26b4ae
       }
     },
     "runtimes": {
